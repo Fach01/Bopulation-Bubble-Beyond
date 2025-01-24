@@ -3,10 +3,11 @@ extends Sprite2D
 @export_category("Runtime Values")
 @export var resource : float = 999999
 @export var unit_cost : float
-@export var bubble_level : float
+@export var bubble_level : float = 1
 @export var upgrade_cost : float
 
 @export var shield : Node2D
+@export var camera : Camera2D
 
 
 func upgrade_shield(amount : int) -> bool:
@@ -20,7 +21,8 @@ func upgrade_shield(amount : int) -> bool:
 
 
 func recalc_bubble_scale():
-	shield.scale = Vector2.ONE * Constants.bubble_init_scale * Constants.bubble_scale_increase * bubble_level
+	shield.scale = Vector2.ONE * Constants.bubble_init_scale * pow(Constants.spawn_radius_multiplier, bubble_level)
+	camera.zoom = Vector2.ONE * 2 / pow(Constants.spawn_radius_multiplier, bubble_level)
 
-func _on_upgrade_shield_pressed() -> void:
-	pass # Replace with function body.
+func _ready() -> void:
+	recalc_bubble_scale()

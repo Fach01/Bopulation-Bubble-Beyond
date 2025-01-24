@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://df8u303eews57"]
+[gd_scene load_steps=12 format=3 uid="uid://7d87sc60gw5s"]
 
 [ext_resource type="Script" path="res://Scenes/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
 [ext_resource type="Script" path="res://Scripts/home_base.gd" id="3_t5err"]
-[ext_resource type="Texture2D" path="res://Assets/Textures/Bubble Upgrade.png" id="4_b6coj"]
-[ext_resource type="Texture2D" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
+[ext_resource type="Texture2D" uid="uid://sbqle6wjpmp0" path="res://Assets/Textures/Bubble Upgrade.png" id="4_b6coj"]
+[ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
 
 [sub_resource type="Gradient" id="Gradient_s4prp"]
 interpolation_mode = 2
@@ -54,11 +54,12 @@ resource_node_tree = ExtResource("2_f0crh")
 scale = Vector2(10, 10)
 texture = SubResource("GradientTexture2D_2xryy")
 
-[node name="Home Base" type="Sprite2D" parent="." node_paths=PackedStringArray("shield")]
+[node name="Home Base" type="Sprite2D" parent="." node_paths=PackedStringArray("shield", "camera")]
 texture = SubResource("GradientTexture2D_73ndl")
 script = ExtResource("3_t5err")
 upgrade_cost = 10.0
 shield = NodePath("../Bubble")
+camera = NodePath("../Camera2D")
 
 [node name="Unit" type="Sprite2D" parent="."]
 position = Vector2(-104, -48)
