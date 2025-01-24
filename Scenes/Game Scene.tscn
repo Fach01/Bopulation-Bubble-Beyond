@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://7d87sc60gw5s"]
+[gd_scene load_steps=12 format=3 uid="uid://df8u303eews57"]
 
 [ext_resource type="Script" path="res://Scenes/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
 [ext_resource type="Script" path="res://Scripts/home_base.gd" id="3_t5err"]
+[ext_resource type="Texture2D" path="res://Assets/Textures/Bubble Upgrade.png" id="4_b6coj"]
+[ext_resource type="Texture2D" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
 
 [sub_resource type="Gradient" id="Gradient_s4prp"]
 interpolation_mode = 2
@@ -38,6 +40,10 @@ fill_to = Vector2(1, 0.5)
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Mars" type="Sprite2D" parent="."]
+scale = Vector2(24.6777, 24.6777)
+texture = ExtResource("5_ppkt8")
+
 [node name="Resource Manager" type="Node" parent="."]
 script = ExtResource("1_uj0k0")
 resource_node_tree = ExtResource("2_f0crh")
@@ -48,9 +54,11 @@ resource_node_tree = ExtResource("2_f0crh")
 scale = Vector2(10, 10)
 texture = SubResource("GradientTexture2D_2xryy")
 
-[node name="Home Base" type="Sprite2D" parent="."]
+[node name="Home Base" type="Sprite2D" parent="." node_paths=PackedStringArray("shield")]
 texture = SubResource("GradientTexture2D_73ndl")
 script = ExtResource("3_t5err")
+upgrade_cost = 10.0
+shield = NodePath("../Bubble")
 
 [node name="Unit" type="Sprite2D" parent="."]
 position = Vector2(-104, -48)
@@ -58,9 +66,9 @@ scale = Vector2(0.421875, 0.421875)
 texture = SubResource("GradientTexture2D_xctdk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD"]
 anchors_preset = 15
@@ -72,3 +80,74 @@ ratio = 1.7778
 
 [node name="ReferenceRect" type="ReferenceRect" parent="HUD/AspectRatioContainer"]
 layout_mode = 2
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -323.996
+offset_right = 576.0
+offset_bottom = 323.996
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.463
+anchor_top = 0.298
+anchor_right = 0.537
+anchor_bottom = 0.427
+offset_left = -0.376038
+offset_top = -0.101608
+offset_right = 0.375977
+offset_bottom = 0.307434
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="HUD/Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Upgrade Shield" type="TextureButton" parent="HUD/Control/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource("4_b6coj")
+stretch_mode = 4
+
+[node name="Buy Unit" type="TextureButton" parent="HUD/Control/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource("4_b6coj")
+stretch_mode = 4
+
+[node name="Destroy Unit" type="TextureButton" parent="HUD/Control/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource("4_b6coj")
+stretch_mode = 4
+
+[node name="Upgrade Storage" type="TextureButton" parent="HUD/Control/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource("4_b6coj")
+stretch_mode = 4
+
+[connection signal="pressed" from="HUD/Control/Panel/GridContainer/Upgrade Shield" to="Home Base" method="upgrade_shield" binds= [1]]

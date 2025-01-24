@@ -1,9 +1,10 @@
+class_name ResourceNode
 extends Sprite2D
 
-@export var min_count : int
-@export var max_count : int
-@export var min_value : int
-@export var max_value : int
+@export var min_count : int = 20
+@export var max_count : int = 40
+@export var min_value : int = 10
+@export var max_value : int = 30
 
 @export var resource_count : int
 @export var resource_value : float
