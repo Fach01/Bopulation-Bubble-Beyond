@@ -1,7 +1,7 @@
 extends Sprite2D
 
 @export_category("Runtime Values")
-@export var resource : float
+@export var resource : float = 999999
 @export var unit_cost : float
 @export var bubble_level : float
 @export var upgrade_cost : float
@@ -21,3 +21,6 @@ func upgrade_shield(amount : int) -> bool:
 
 func recalc_bubble_scale():
 	shield.scale = Vector2.ONE * Constants.bubble_init_scale * Constants.bubble_scale_increase * bubble_level
+
+func _on_upgrade_shield_pressed() -> void:
+	pass # Replace with function body.
