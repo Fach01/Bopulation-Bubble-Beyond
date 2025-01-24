@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu04qf5chlab3"]
+[gd_scene load_steps=3 format=3 uid="uid://bu04qf5chlab3"]
+
+[ext_resource type="Script" path="res://Scripts/start_button.gd" id="1_fuhc0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0mvl"]
 font_size = 76
@@ -39,9 +41,10 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
+[node name="StartButton" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
 layout_mode = 2
 text = "Start"
+script = ExtResource("1_fuhc0")
 
 [node name="Button2" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
 layout_mode = 2

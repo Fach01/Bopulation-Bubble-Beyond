@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu04qf5chlab3"]
+
+[ext_resource type="Script" path="res://Scripts/start_button.gd" id="1_fuhc0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q0mvl"]
+font_size = 76
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="ReferenceRect" type="ReferenceRect" parent="AspectRatioContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="AspectRatioContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 352.0
+offset_top = 178.0
+offset_right = -352.0
+offset_bottom = -177.992
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+script = ExtResource("1_fuhc0")
+
+[node name="Button2" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Button3" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Button4" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 215.0
+offset_top = 37.0
+offset_right = -214.0
+offset_bottom = -397.992
+grow_horizontal = 2
+grow_vertical = 2
+text = "Mars Bubble Game Thing idk"
+label_settings = SubResource("LabelSettings_q0mvl")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

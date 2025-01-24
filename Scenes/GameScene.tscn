@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://7d87sc60gw5s"]
 
-[ext_resource type="Script" path="res://Scripts/resource.gd" id="1_vu2to"]
+[ext_resource type="Script" path="res://Scripts/resource.gd" id="1_hehro"]
 
 [sub_resource type="Gradient" id="Gradient_e2sic"]
 interpolation_mode = 1
@@ -52,7 +52,7 @@ fill_to = Vector2(1, 0.5)
 [node name="Resource" type="Sprite2D" parent="Resource Manager"]
 position = Vector2(135, -122)
 texture = SubResource("GradientTexture2D_m1vj5")
-script = ExtResource("1_vu2to")
+script = ExtResource("1_hehro")
 
 [node name="Bubble" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
