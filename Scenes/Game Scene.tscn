@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://7d87sc60gw5s"]
+
+[ext_resource type="Script" path="res://Scripts/resource.gd" id="1_vu2to"]
+
+[sub_resource type="Gradient" id="Gradient_e2sic"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.89769, 1)
+colors = PackedColorArray(0.1728, 0.72, 0.264, 1, 0.1152, 0.48, 0.20032, 1, 0.180392, 0.521569, 0.180392, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m1vj5"]
+gradient = SubResource("Gradient_e2sic")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_s4prp"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.290429, 0.947195, 1)
+colors = PackedColorArray(0, 0.883333, 1, 0.027451, 0.03, 0.886833, 1, 0.258824, 0.82, 0.979, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2xryy"]
+gradient = SubResource("Gradient_s4prp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_fpl07"]
+offsets = PackedFloat32Array(0.742574, 1)
+colors = PackedColorArray(0.917076, 0.000167302, 0.771621, 1, 0.236075, 0.00041674, 0.360006, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_73ndl"]
+gradient = SubResource("Gradient_fpl07")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_ebvhy"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.90099, 1)
+colors = PackedColorArray(1, 0.766667, 0, 1, 0.54, 0.414, 0, 1, 0.43, 0.329667, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xctdk"]
+gradient = SubResource("Gradient_ebvhy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Resource Manager" type="Node" parent="."]
+
+[node name="Resource" type="Sprite2D" parent="Resource Manager"]
+position = Vector2(135, -122)
+texture = SubResource("GradientTexture2D_m1vj5")
+script = ExtResource("1_vu2to")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("GradientTexture2D_2xryy")
+
+[node name="Home Base" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_73ndl")
+
+[node name="Unit" type="Sprite2D" parent="."]
+position = Vector2(-104, -48)
+scale = Vector2(0.421875, 0.421875)
+texture = SubResource("GradientTexture2D_xctdk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HUD/AspectRatioContainer"]
+layout_mode = 2
