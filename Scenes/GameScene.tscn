@@ -1,11 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://chulv6am5rg42"]
+[gd_scene load_steps=19 format=3 uid="uid://chulv6am5rg42"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
 [ext_resource type="Script" path="res://Scripts/home_base.gd" id="3_t5err"]
 [ext_resource type="Texture2D" uid="uid://sbqle6wjpmp0" path="res://Assets/Textures/Bubble Upgrade.png" id="4_b6coj"]
+[ext_resource type="PackedScene" path="res://Objects/Button Sound Manager.tscn" id="5_6wdqr"]
 [ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
 [ext_resource type="Texture2D" uid="uid://dgiyepu4djsgl" path="res://Assets/Textures/GetWorkers.png" id="6_btquw"]
+[ext_resource type="Script" path="res://Scripts/button_sound_group.gd" id="6_fc3gq"]
+[ext_resource type="AudioStream" uid="uid://45yhkhvi0e1i" path="res://Assets/Audio/SFX/BuySFX.wav" id="7_734a3"]
+[ext_resource type="AudioStream" uid="uid://pq7h52h2l8p1" path="res://Assets/Audio/SFX/ButtonHoverSFX.wav" id="8_li3tk"]
 
 [sub_resource type="Gradient" id="Gradient_s4prp"]
 interpolation_mode = 2
@@ -39,6 +43,14 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_d33pj"]
+
+[sub_resource type="Resource" id="Resource_4mrsr"]
+script = ExtResource("6_fc3gq")
+group = SubResource("ButtonGroup_d33pj")
+hover_sound = ExtResource("8_li3tk")
+click_sound = ExtResource("7_734a3")
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Mars" type="Sprite2D" parent="."]
@@ -58,10 +70,7 @@ texture = SubResource("GradientTexture2D_2xryy")
 [node name="Home Base" type="Sprite2D" parent="." node_paths=PackedStringArray("shield", "camera")]
 texture = SubResource("GradientTexture2D_73ndl")
 script = ExtResource("3_t5err")
-resource = null
 unit_cost = null
-bubble_level = null
-upgrade_cost = 10.0
 shield = NodePath("../Bubble")
 camera = NodePath("../Camera2D")
 
@@ -113,6 +122,9 @@ offset_right = 0.375977
 offset_bottom = 0.307434
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ButtonSoundManager" parent="HUD/Control/Panel" instance=ExtResource("5_6wdqr")]
+button_sound_groups = Array[ExtResource("6_fc3gq")]([SubResource("Resource_4mrsr")])
 
 [node name="GridContainer" type="GridContainer" parent="HUD/Control/Panel"]
 layout_mode = 1
