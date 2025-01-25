@@ -53,6 +53,7 @@ func summon_lose_screen():
 	UI_parent.add_child(node)
 
 func summon_win_screen():
+	get_parent().find_child("Mars").texture = mars_green_texture
 	var node = win_screen.instantiate()
 	UI_parent.add_child(node)
 
