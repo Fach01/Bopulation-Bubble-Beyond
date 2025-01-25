@@ -166,3 +166,4 @@ stretch_mode = 4
 [connection signal="changed_storage" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_max"]
 [connection signal="pressed" from="HUD/Control/Panel/GridContainer/Upgrade Shield" to="Home Base" method="upgrade_shield" binds= [1]]
 [connection signal="pressed" from="HUD/Control/Panel/GridContainer/Buy Unit" to="Home Base" method="buy_units" binds= [1]]
+[connection signal="pressed" from="HUD/Control/Panel/GridContainer/Upgrade Storage" to="Home Base" method="upgrade_storage"]
