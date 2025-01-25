@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvfgyur7buu6i"]
 
 [ext_resource type="Script" path="res://Scripts/start_button.gd" id="1_fuhc0"]
-[ext_resource type="PackedScene" uid="uid://df8u303eews57" path="res://Scenes/Game Scene.tscn" id="2_w0gi0"]
+[ext_resource type="PackedScene" uid="uid://df8u303eews57" path="res://Scenes/GameScene.tscn" id="2_w0gi0"]
 [ext_resource type="Script" path="res://Scripts/quit_button.gd" id="3_vhwbu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0mvl"]
