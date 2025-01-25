@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://df8u303eews57"]
+[gd_scene load_steps=11 format=3 uid="uid://df8u303eews57"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
 [ext_resource type="Script" path="res://Scripts/home_base.gd" id="3_t5err"]
 [ext_resource type="Texture2D" uid="uid://sbqle6wjpmp0" path="res://Assets/Textures/Bubble Upgrade.png" id="4_b6coj"]
+[ext_resource type="PackedScene" uid="uid://xftryq1tmjcv" path="res://Objects/unit.tscn" id="5_j3rfs"]
 [ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
 
 [sub_resource type="Gradient" id="Gradient_s4prp"]
@@ -27,18 +28,11 @@ fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
-[sub_resource type="Gradient" id="Gradient_ebvhy"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.90099, 1)
-colors = PackedColorArray(1, 0.766667, 0, 1, 0.54, 0.414, 0, 1, 0.43, 0.329667, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xctdk"]
-gradient = SubResource("Gradient_ebvhy")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-
 [node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3.8147e-06, 0)
+position_smoothing_enabled = true
 
 [node name="Mars" type="Sprite2D" parent="."]
 scale = Vector2(24.6777, 24.6777)
@@ -60,14 +54,12 @@ script = ExtResource("3_t5err")
 upgrade_cost = 10.0
 shield = NodePath("../Bubble")
 camera = NodePath("../Camera2D")
+unit_scene = ExtResource("5_j3rfs")
 
-[node name="Unit" type="Sprite2D" parent="."]
-position = Vector2(-104, -48)
-scale = Vector2(0.421875, 0.421875)
-texture = SubResource("GradientTexture2D_xctdk")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
+[node name="Unit8" parent="." node_paths=PackedStringArray("resource_manager", "home_base") instance=ExtResource("5_j3rfs")]
+position = Vector2(-224, -39)
+resource_manager = NodePath("../Resource Manager")
+home_base = NodePath("../Home Base")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -152,3 +144,4 @@ texture_normal = ExtResource("4_b6coj")
 stretch_mode = 4
 
 [connection signal="pressed" from="HUD/Control/Panel/GridContainer/Upgrade Shield" to="Home Base" method="upgrade_shield" binds= [1]]
+[connection signal="pressed" from="HUD/Control/Panel/GridContainer/Buy Unit" to="Home Base" method="buy_units" binds= [1]]
