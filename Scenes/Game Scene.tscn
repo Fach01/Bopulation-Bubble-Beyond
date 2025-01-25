@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://koriirba2qc7"]
 
-[ext_resource type="Script" path="res://Scenes/resource_manager.gd" id="1_uj0k0"]
+[ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
 [ext_resource type="Script" path="res://Scripts/home_base.gd" id="3_t5err"]
 [ext_resource type="Texture2D" uid="uid://sbqle6wjpmp0" path="res://Assets/Textures/Bubble Upgrade.png" id="4_b6coj"]
@@ -51,13 +51,15 @@ texture = SubResource("GradientTexture2D_2xryy")
 [node name="Home Base" type="Sprite2D" parent="." node_paths=PackedStringArray("shield", "camera")]
 texture = SubResource("GradientTexture2D_73ndl")
 script = ExtResource("3_t5err")
-upgrade_cost = 10.0
+unit_cost = 10.0
+bubble_upgrade_cost = 20.0
+storage_upgrade_cost = 20.0
 shield = NodePath("../Bubble")
 camera = NodePath("../Camera2D")
 unit_scene = ExtResource("5_j3rfs")
 
 [node name="Unit8" parent="." node_paths=PackedStringArray("resource_manager", "home_base") instance=ExtResource("5_j3rfs")]
-position = Vector2(-224, -39)
+position = Vector2(-71, -86)
 resource_manager = NodePath("../Resource Manager")
 home_base = NodePath("../Home Base")
 
@@ -73,6 +75,23 @@ ratio = 1.7778
 
 [node name="ReferenceRect" type="ReferenceRect" parent="HUD/AspectRatioContainer"]
 layout_mode = 2
+
+[node name="Control" type="Control" parent="HUD/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD/AspectRatioContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.026
+anchor_right = 0.264
+anchor_bottom = 0.091
+offset_left = 6.08
+offset_top = 0.205196
+offset_right = -0.119995
+offset_bottom = 0.718185
+value = 100.0
+show_percentage = false
 
 [node name="Control" type="Control" parent="HUD"]
 layout_mode = 3
@@ -143,5 +162,7 @@ size_flags_vertical = 6
 texture_normal = ExtResource("4_b6coj")
 stretch_mode = 4
 
+[connection signal="changed_resource" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_value"]
+[connection signal="changed_storage" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_max"]
 [connection signal="pressed" from="HUD/Control/Panel/GridContainer/Upgrade Shield" to="Home Base" method="upgrade_shield" binds= [1]]
 [connection signal="pressed" from="HUD/Control/Panel/GridContainer/Buy Unit" to="Home Base" method="buy_units" binds= [1]]

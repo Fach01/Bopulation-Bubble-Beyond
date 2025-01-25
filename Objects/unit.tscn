@@ -17,4 +17,4 @@ fill_to = Vector2(1, 0.5)
 scale = Vector2(0.421875, 0.421875)
 texture = SubResource("GradientTexture2D_xctdk")
 script = ExtResource("1_xuv4b")
-speed = 2000.0
+speed = 200.0
