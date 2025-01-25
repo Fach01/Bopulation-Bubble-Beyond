@@ -1,5 +1,5 @@
 class_name Home_Base
-extends Sprite2D
+extends Node2D
 
 @export_category("Runtime Values")
 @export var unit_cost : float
@@ -10,6 +10,7 @@ extends Sprite2D
 @export var shield : Node2D
 @export var camera : Camera2D
 @export var UI_parent : Control
+@export var unit_parent : Node
 @export var lose_screen : PackedScene
 @export var win_screen : PackedScene
 
@@ -98,7 +99,7 @@ func spawn_units(amount : int):
 		var new_unit : Unit = unit_scene.instantiate()
 		new_unit.home_base = self
 		new_unit.resource_manager = get_parent().find_child("Resource Manager")
-		get_parent().add_child.call_deferred(new_unit)
+		unit_parent.add_child.call_deferred(new_unit)
 		units.append(new_unit)
 		unit_instancer.multimesh.instance_count += 1
 

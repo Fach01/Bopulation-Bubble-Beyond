@@ -14,6 +14,7 @@ signal depleted
 func _ready():
     resource_count = randi_range(min_count,max_count) 
     resource_value = randi_range(min_value,max_value)
+    rotate(randf() * TAU)
 
 func Peak_Resources() -> int :
     return resource_count
