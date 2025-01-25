@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://clrbv0a7ggpt1"]
+[gd_scene load_steps=9 format=3 uid="uid://clrbv0a7ggpt1"]
 
 [ext_resource type="Script" path="res://Scripts/button_sound_manager.gd" id="1_2lhnu"]
 [ext_resource type="Script" path="res://Scripts/button_sound_group.gd" id="2_jfxsq"]
+[ext_resource type="ButtonGroup" uid="uid://f4soss1gceil" path="res://Objects/Store Button Group.tres" id="3_h6fvh"]
 
 [sub_resource type="Resource" id="Resource_ynvc6"]
 script = ExtResource("2_jfxsq")
 
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_qc0du"]
+mix_rate = 67250.0
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_kuuoq"]
+
 [sub_resource type="Resource" id="Resource_cq30u"]
 script = ExtResource("2_jfxsq")
+group = ExtResource("3_h6fvh")
+hover_sound = SubResource("AudioStreamGenerator_kuuoq")
+click_sound = SubResource("AudioStreamGenerator_qc0du")
 
 [sub_resource type="Resource" id="Resource_ddaa3"]
 script = ExtResource("2_jfxsq")

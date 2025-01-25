@@ -9,6 +9,6 @@ const starter_nodes : int = 300
 const bubble_init_scale : float = 10
 const max_bubble_upgrades : int = 20
 
-static var resource : float = 999999
+static var resource : float = 70
 static var bubble_level : float = 1
 static var max_resource : float = 200

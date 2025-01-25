@@ -13,6 +13,7 @@ extends Sprite2D
 
 signal changed_storage(max_storage : float)
 signal changed_resource(resources : float)
+signal pop
 
 
 @export var unit_scene : PackedScene
@@ -20,8 +21,10 @@ signal changed_resource(resources : float)
 func _process(delta: float) -> void:
 	State.resource = min(State.resource, State.max_resource)
 	State.resource -= depletion_speed * (State.bubble_level * .8) * delta
-	recalc_bubble_scale()
 	changed_resource.emit(State.resource)
+	if State.resource <= 0:
+		pop.emit()
+
 
 
 func upgrade_shield(amount : int) -> bool:
@@ -35,10 +38,10 @@ func upgrade_shield(amount : int) -> bool:
 
 
 func recalc_bubble_scale():
-	shield.scale = pow(State.resource/State.max_resource, 1) * Vector2.ONE * State.bubble_init_scale * pow(State.spawn_radius_multiplier, State.bubble_level)
+	shield.scale = Vector2.ONE * State.bubble_init_scale * pow(State.spawn_radius_multiplier, State.bubble_level)
 
 func recalc_camera_zoom():
-	camera.zoom = Vector2.ONE * 2 / pow(State.spawn_radius_multiplier, State.bubble_level)
+	camera.zoom = Vector2.ONE / pow(State.spawn_radius_multiplier, State.bubble_level)
 
 func _ready() -> void:
 	changed_storage.emit(State.max_resource)
