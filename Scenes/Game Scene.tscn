@@ -9,6 +9,7 @@
 [ext_resource type="ButtonGroup" uid="uid://f4soss1gceil" path="res://Objects/Store Button Group.tres" id="6_5twy6"]
 [ext_resource type="Texture2D" uid="uid://dgiyepu4djsgl" path="res://Assets/Textures/GetWorkers.png" id="7_8vim0"]
 [ext_resource type="Texture2D" uid="uid://0nrsfc17c5i2" path="res://Assets/Textures/Storage upgrade.png" id="8_w2021"]
+[ext_resource type="PackedScene" uid="uid://db77epk0eacdi" path="res://Objects/lose_screen.tscn" id="10_va2wc"]
 
 [sub_resource type="Gradient" id="Gradient_s4prp"]
 interpolation_mode = 2
@@ -42,9 +43,6 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_hvlen"]
-font_size = 41
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -66,7 +64,7 @@ resource_node_tree = ExtResource("2_f0crh")
 scale = Vector2(10, 10)
 texture = SubResource("GradientTexture2D_2xryy")
 
-[node name="Home Base" type="Sprite2D" parent="." node_paths=PackedStringArray("shield", "camera")]
+[node name="Home Base" type="Sprite2D" parent="." node_paths=PackedStringArray("shield", "camera", "UI_parent")]
 texture = SubResource("GradientTexture2D_73ndl")
 script = ExtResource("3_t5err")
 unit_cost = 40.0
@@ -74,6 +72,8 @@ bubble_upgrade_cost = 20.0
 storage_upgrade_cost = 20.0
 shield = NodePath("../Bubble")
 camera = NodePath("../Camera2D")
+UI_parent = NodePath("../HUD/AspectRatioContainer/Control2")
+lose_screen = ExtResource("10_va2wc")
 unit_scene = ExtResource("5_j3rfs")
 
 [node name="Unit8" parent="." node_paths=PackedStringArray("resource_manager", "home_base") instance=ExtResource("5_j3rfs")]
@@ -89,13 +89,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 ratio = 1.7778
 
 [node name="ReferenceRect" type="ReferenceRect" parent="HUD/AspectRatioContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Control" type="Control" parent="HUD/AspectRatioContainer"]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="HUD/AspectRatioContainer/Control"]
 layout_mode = 1
@@ -108,57 +111,16 @@ offset_left = 6.08
 offset_top = 0.205196
 offset_right = -0.119995
 offset_bottom = 0.718185
+mouse_filter = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_d74re")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k4itn")
 value = 100.0
 
-[node name="Lose Screen" type="Control" parent="HUD"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_top = 56.2538
-offset_right = 1080.0
-offset_bottom = 663.746
+[node name="Control2" type="Control" parent="HUD/AspectRatioContainer"]
+layout_mode = 2
+mouse_filter = 1
 
-[node name="Panel" type="Panel" parent="HUD/Lose Screen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.281
-anchor_top = 0.156
-anchor_right = 0.719
-anchor_bottom = 0.844
-offset_left = -0.480011
-offset_top = 0.231178
-offset_right = 0.47998
-offset_bottom = 0.276367
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="HUD/Lose Screen/Panel"]
-layout_mode = 0
-offset_right = 474.0
-offset_bottom = 95.0
-text = "Colony Destroyed"
-label_settings = SubResource("LabelSettings_hvlen")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="HUD"]
-visible = false
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -323.996
-offset_right = 576.0
-offset_bottom = 323.996
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="HUD/Control"]
+[node name="Panel" type="Panel" parent="HUD/AspectRatioContainer/Control2"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.463
@@ -171,8 +133,9 @@ offset_right = 0.375977
 offset_bottom = 0.307434
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
-[node name="GridContainer" type="GridContainer" parent="HUD/Control/Panel"]
+[node name="GridContainer" type="GridContainer" parent="HUD/AspectRatioContainer/Control2/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -185,32 +148,35 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 2
 
-[node name="Upgrade Shield" type="TextureButton" parent="HUD/Control/Panel/GridContainer"]
+[node name="Upgrade Shield" type="TextureButton" parent="HUD/AspectRatioContainer/Control2/Panel/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+mouse_filter = 1
 button_group = ExtResource("6_5twy6")
 texture_normal = ExtResource("4_b6coj")
 stretch_mode = 4
 
-[node name="Buy Unit" type="TextureButton" parent="HUD/Control/Panel/GridContainer"]
+[node name="Buy Unit" type="TextureButton" parent="HUD/AspectRatioContainer/Control2/Panel/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+mouse_filter = 1
 button_group = ExtResource("6_5twy6")
 texture_normal = ExtResource("7_8vim0")
 stretch_mode = 4
 
-[node name="Upgrade Storage" type="TextureButton" parent="HUD/Control/Panel/GridContainer"]
+[node name="Upgrade Storage" type="TextureButton" parent="HUD/AspectRatioContainer/Control2/Panel/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+mouse_filter = 1
 button_group = ExtResource("6_5twy6")
 texture_normal = ExtResource("8_w2021")
 stretch_mode = 4
 
 [connection signal="changed_resource" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_value"]
 [connection signal="changed_storage" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_max"]
-[connection signal="pressed" from="HUD/Control/Panel/GridContainer/Upgrade Shield" to="Home Base" method="upgrade_shield" binds= [1]]
-[connection signal="pressed" from="HUD/Control/Panel/GridContainer/Buy Unit" to="Home Base" method="buy_units" binds= [1]]
-[connection signal="pressed" from="HUD/Control/Panel/GridContainer/Upgrade Storage" to="Home Base" method="upgrade_storage"]
+[connection signal="pressed" from="HUD/AspectRatioContainer/Control2/Panel/GridContainer/Upgrade Shield" to="Home Base" method="upgrade_shield" binds= [1]]
+[connection signal="pressed" from="HUD/AspectRatioContainer/Control2/Panel/GridContainer/Buy Unit" to="Home Base" method="buy_units" binds= [1]]
+[connection signal="pressed" from="HUD/AspectRatioContainer/Control2/Panel/GridContainer/Upgrade Storage" to="Home Base" method="upgrade_storage"]

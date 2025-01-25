@@ -2,25 +2,22 @@
 
 [ext_resource type="Script" path="res://Scripts/button_sound_manager.gd" id="1_2lhnu"]
 [ext_resource type="Script" path="res://Scripts/button_sound_group.gd" id="2_jfxsq"]
+[ext_resource type="AudioStream" uid="uid://cljth6qmfqc5s" path="res://Assets/Audio/SFX/ButtonSelectSFX.wav" id="3_5f00r"]
 [ext_resource type="ButtonGroup" uid="uid://f4soss1gceil" path="res://Objects/Store Button Group.tres" id="3_h6fvh"]
+[ext_resource type="AudioStream" uid="uid://pq7h52h2l8p1" path="res://Assets/Audio/SFX/ButtonHoverSFX.wav" id="4_evde7"]
+[ext_resource type="AudioStream" uid="uid://45yhkhvi0e1i" path="res://Assets/Audio/SFX/BuySFX.wav" id="5_nya3u"]
 
 [sub_resource type="Resource" id="Resource_ynvc6"]
 script = ExtResource("2_jfxsq")
-
-[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_qc0du"]
-mix_rate = 67250.0
-
-[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_kuuoq"]
+hover_sound = ExtResource("4_evde7")
+click_sound = ExtResource("3_5f00r")
 
 [sub_resource type="Resource" id="Resource_cq30u"]
 script = ExtResource("2_jfxsq")
 group = ExtResource("3_h6fvh")
-hover_sound = SubResource("AudioStreamGenerator_kuuoq")
-click_sound = SubResource("AudioStreamGenerator_qc0du")
-
-[sub_resource type="Resource" id="Resource_ddaa3"]
-script = ExtResource("2_jfxsq")
+hover_sound = ExtResource("4_evde7")
+click_sound = ExtResource("5_nya3u")
 
 [node name="ButtonSoundManager" type="Node"]
 script = ExtResource("1_2lhnu")
-button_sound_groups = Array[ExtResource("2_jfxsq")]([SubResource("Resource_ynvc6"), SubResource("Resource_cq30u"), SubResource("Resource_ddaa3")])
+button_sound_groups = Array[ExtResource("2_jfxsq")]([SubResource("Resource_ynvc6"), SubResource("Resource_cq30u")])

@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://db77epk0eacdi"]
+
+[ext_resource type="Script" path="res://Scripts/start_button.gd" id="1_wsudv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hvlen"]
+font_size = 41
+
+[node name="Lose Screen" type="AspectRatioContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.121
+anchor_top = 0.275
+anchor_right = 0.879
+anchor_bottom = 0.728
+offset_left = -0.120003
+offset_top = 2.0
+offset_right = 0.119934
+offset_bottom = -0.160034
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.343
+offset_bottom = -0.132011
+grow_horizontal = 2
+grow_vertical = 2
+text = "Colony Destroyed"
+label_settings = SubResource("LabelSettings_hvlen")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.077
+anchor_top = 0.457
+anchor_right = 0.918
+anchor_bottom = 0.738
+offset_left = -0.0420036
+offset_top = -0.0680084
+offset_right = -0.228027
+offset_bottom = -0.112015
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="Control/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Restart"
+script = ExtResource("1_wsudv")
+NewScene = &"Scenes/Game Scene.tscn"
+
+[node name="Button2" type="Button" parent="Control/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Main Menu"
+script = ExtResource("1_wsudv")
+NewScene = &"Scenes/Main Menu.tscn"

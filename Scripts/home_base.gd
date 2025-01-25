@@ -9,6 +9,10 @@ extends Sprite2D
 
 @export var shield : Node2D
 @export var camera : Camera2D
+@export var UI_parent : Control
+@export var lose_screen : PackedScene
+
+var dead : bool
 
 
 signal changed_storage(max_storage : float)
@@ -19,13 +23,18 @@ signal pop
 @export var unit_scene : PackedScene
 
 func _process(delta: float) -> void:
+	if dead : return
 	State.resource = min(State.resource, State.max_resource)
 	State.resource -= depletion_speed * (State.bubble_level * .8) * delta
 	changed_resource.emit(State.resource)
 	if State.resource <= 0:
 		pop.emit()
+		summon_lose_screen()
+		dead = true
 
-
+func summon_lose_screen():
+	var node = lose_screen.instantiate()
+	UI_parent.add_child(node)
 
 func upgrade_shield(amount : int) -> bool:
 	var _final_cost = bubble_upgrade_cost * pow(State.upgrade_cost_increment, amount)

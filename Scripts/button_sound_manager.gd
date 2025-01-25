@@ -27,7 +27,10 @@ func _on_node_added(node:Node) -> void:
 	if node is Button:
 		for a in button_sound_groups:
 			if a.group == (node as Button).button_group:
-				node.mouse_entered.connect(playback.play_stream(a.hover_sound, 0, 0, randf_range(0.9, 1.1)))
-				node.pressed.connect(playback.play_stream(a.click_sound, 0, 0, randf_range(0.9, 1.1)))
-
-
+				node.mouse_entered.connect(func() : playback.play_stream(a.hover_sound, 0, 0, randf_range(0.9, 1.1)))
+				node.pressed.connect(func() : playback.play_stream(a.click_sound, 0, 0, randf_range(0.9, 1.1)))
+	elif node is TextureButton:
+		for a in button_sound_groups:
+			if a.group == (node as TextureButton).button_group:
+				node.mouse_entered.connect(func() : playback.play_stream(a.hover_sound, 0, 0, randf_range(0.9, 1.1)))
+				node.pressed.connect(func() : playback.play_stream(a.click_sound, 0, 0, randf_range(0.9, 1.1)))

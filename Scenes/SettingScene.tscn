@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5w2ykyqbawvh"]
+[gd_scene load_steps=4 format=3 uid="uid://b5w2ykyqbawvh"]
 
-[ext_resource type="Script" path="res://Scenes/setting_scene.gd" id="1_4gxs3"]
-[ext_resource type="Script" path="res://Scripts/return_to_menu.gd" id="1_f5e8n"]
-[ext_resource type="PackedScene" uid="uid://dvfgyur7buu6i" path="res://Scenes/MainMenu.tscn" id="2_62gij"]
+[ext_resource type="Script" path="res://Scripts/setting_scene.gd" id="1_4gxs3"]
+[ext_resource type="Script" path="res://Scripts/start_button.gd" id="2_84chl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0mvl"]
 font_size = 76
@@ -77,8 +76,8 @@ text = "Toggle Mute"
 [node name="CloseSettings" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
 layout_mode = 2
 text = "Return To Menu"
-script = ExtResource("1_f5e8n")
-NewScene = ExtResource("2_62gij")
+script = ExtResource("2_84chl")
+NewScene = &"Scenes/Main Menu.tscn"
 
 [node name="Label" type="Label" parent="AspectRatioContainer/Control"]
 layout_mode = 1
