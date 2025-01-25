@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://88rdhe1tuonb"]
+[gd_scene load_steps=7 format=3 uid="uid://88rdhe1tuonb"]
 
 [ext_resource type="Script" path="res://Scripts/start_button.gd" id="1_ronnr"]
+[ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="1_t6yoc"]
+[ext_resource type="Script" path="res://Scripts/background_changer.gd" id="2_le3wj"]
+[ext_resource type="Texture2D" uid="uid://byhgdk76j2oq3" path="res://Assets/Textures/Mars_Green.jpg" id="3_hh5dp"]
 [ext_resource type="Script" path="res://Scripts/quit_button.gd" id="5_p2thg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_idr70"]
-font_size = 76
+font_size = 66
+font_color = Color(0, 0.65, 1, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.815686)
+shadow_offset = Vector2(3, 3)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -23,8 +32,23 @@ grow_horizontal = 2
 grow_vertical = 2
 ratio = 1.7778
 
-[node name="ReferenceRect" type="ReferenceRect" parent="AspectRatioContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer"]
 layout_mode = 2
+
+[node name="Control" type="Control" parent="AspectRatioContainer/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/AspectRatioContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t6yoc")
+expand_mode = 2
+script = ExtResource("2_le3wj")
+won_background = ExtResource("3_hh5dp")
 
 [node name="Control" type="Control" parent="AspectRatioContainer"]
 layout_mode = 2
@@ -74,13 +98,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 215.0
-offset_top = 37.0
-offset_right = -214.0
-offset_bottom = -397.992
+offset_left = 197.0
+offset_top = 45.0
+offset_right = -196.0
+offset_bottom = -377.492
 grow_horizontal = 2
 grow_vertical = 2
-text = "Mars Bubble Game Thing idk"
+text = "Colonial Bubble Blower"
 label_settings = SubResource("LabelSettings_idr70")
 horizontal_alignment = 1
 vertical_alignment = 1

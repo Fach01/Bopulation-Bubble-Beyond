@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://koriirba2qc7"]
+[gd_scene load_steps=22 format=3 uid="uid://koriirba2qc7"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xftryq1tmjcv" path="res://Objects/unit.tscn" id="5_j3rfs"]
 [ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
 [ext_resource type="ButtonGroup" uid="uid://f4soss1gceil" path="res://Objects/Store Button Group.tres" id="6_5twy6"]
+[ext_resource type="PackedScene" uid="uid://clb06qln38owr" path="res://Objects/win_screen.tscn" id="6_kd8gn"]
 [ext_resource type="Texture2D" uid="uid://blwf4uhk02nr" path="res://Assets/Textures/dead worker sprite.png" id="6_xugy1"]
 [ext_resource type="Texture2D" uid="uid://dgiyepu4djsgl" path="res://Assets/Textures/GetWorkers.png" id="7_8vim0"]
 [ext_resource type="Texture2D" uid="uid://btm0rd0oefbcr" path="res://Assets/Textures/worker sprite.png" id="7_lp43u"]
@@ -79,11 +80,11 @@ script = ExtResource("3_t5err")
 unit_cost = 40.0
 bubble_upgrade_cost = 20.0
 storage_upgrade_cost = 20.0
-depletion_speed = null
 shield = NodePath("../Bubble")
 camera = NodePath("../Camera2D")
 UI_parent = NodePath("../HUD/AspectRatioContainer/Control2")
 lose_screen = ExtResource("10_va2wc")
+win_screen = ExtResource("6_kd8gn")
 dead_unit_texture = ExtResource("6_xugy1")
 unit_instancer = NodePath("MultiMeshInstance2D")
 unit_scene = ExtResource("5_j3rfs")

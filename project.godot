@@ -29,6 +29,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="GameJam2025"
 
+[gui]
+
+theme/custom="res://Primary Theme.tres"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

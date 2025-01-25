@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://clb06qln38owr"]
+
+[ext_resource type="Script" path="res://Scripts/start_button.gd" id="1_5wixi"]
+
+[sub_resource type="Gradient" id="Gradient_krt4s"]
+colors = PackedColorArray(0.534614, 0.630143, 0.822404, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1oskb"]
+gradient = SubResource("Gradient_krt4s")
+width = 15
+height = 40
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_qmrch"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.22408, 0.488294, 0.779264, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.643212, 0.980312, 0, 1, 0, 0.98, 0.898333, 1, 0.0490002, 0, 0.98, 1, 0.931, 0, 0.98, 1)
+
+[node name="Lose Screen" type="AspectRatioContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.121
+anchor_top = 0.275
+anchor_right = 0.879
+anchor_bottom = 0.728
+offset_left = -0.120003
+offset_top = 2.0
+offset_right = 0.119934
+offset_bottom = -0.160034
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="RichTextLabel" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.343
+offset_left = 13.0
+offset_top = 19.0
+offset_right = -12.9999
+offset_bottom = 65.868
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center][font_size=50]Congratulations![font_size=25]
+You've successfully colonised mars!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.077
+anchor_top = 0.522
+anchor_right = 0.918
+anchor_bottom = 0.765
+offset_left = -0.0419998
+offset_top = -0.127975
+offset_right = -0.227966
+offset_bottom = 0.14003
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="Control/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Play Again"
+script = ExtResource("1_5wixi")
+NewScene = &"Scenes/Game Scene.tscn"
+
+[node name="Button2" type="Button" parent="Control/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Main Menu"
+script = ExtResource("1_5wixi")
+NewScene = &"Scenes/Main Menu.tscn"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Control"]
+position = Vector2(360, 720)
+texture = SubResource("GradientTexture2D_1oskb")
+emission_shape = 3
+emission_rect_extents = Vector2(300, 1)
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 22.88
+gravity = Vector2(0, 400)
+initial_velocity_min = 302.77
+initial_velocity_max = 637.9
+scale_amount_min = 0.3
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+color_initial_ramp = SubResource("Gradient_qmrch")

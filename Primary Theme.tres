@@ -1,0 +1,91 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://crs3vvx21fu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bb4p"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.521569, 0.0313726, 0, 1)
+skew = Vector2(0.3, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.566291, 0.479449, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0o6f"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.519702, 0.032863, 0, 1)
+skew = Vector2(0.3, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.247059, 0.0196078, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4fc6"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
+bg_color = Color(0.41748, 0.105404, 0, 1)
+skew = Vector2(0.3, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.245306, 0.0193983, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5g876"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6osn"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.57253, 0.20661, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.369784, 0.172153, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.150258, 0, 0.010869, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[resource]
+Button/font_sizes/font_size = 21
+Button/styles/focus = SubResource("StyleBoxFlat_8bb4p")
+Button/styles/hover = SubResource("StyleBoxFlat_d0o6f")
+Button/styles/normal = SubResource("StyleBoxFlat_k4fc6")
+Button/styles/pressed = SubResource("StyleBoxFlat_5g876")
+Label/colors/font_color = Color(0.521569, 0.0313726, 0, 1)
+Label/colors/font_outline_color = Color(0.3, 0.051, 0.051, 1)
+Label/colors/font_shadow_color = Color(0.278812, 0.0198053, 0.00476978, 0.654902)
+Label/constants/outline_size = 3
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 2
+Label/constants/shadow_outline_size = 2
+Label/font_sizes/font_size = 41
+Label/fonts/font = null
+Label/styles/normal = null
+Panel/styles/panel = SubResource("StyleBoxFlat_l6osn")
+RichTextLabel/fonts/normal_font = null

@@ -11,8 +11,10 @@ extends Sprite2D
 @export var camera : Camera2D
 @export var UI_parent : Control
 @export var lose_screen : PackedScene
+@export var win_screen : PackedScene
 
 @export var dead_unit_texture : Texture2D
+@export var mars_green_texture : Texture2D
 
 var units : Array[Unit]
 
@@ -20,18 +22,18 @@ var units : Array[Unit]
 
 var dead : bool
 
-
 signal changed_storage(max_storage : float)
 signal changed_resource(resources : float)
 signal pop
 signal bubble_upgraded(new_price : float)
 signal unit_upgraded(new_price : float)
+signal win
 
 
 @export var unit_scene : PackedScene
 
 func _process(delta: float) -> void:
-	if dead : return
+	if dead || State.has_won : return
 	State.resource = min(State.resource, State.max_resource)
 	State.resource -= depletion_speed * (State.bubble_level) * delta
 	changed_resource.emit(State.resource)
@@ -50,6 +52,10 @@ func summon_lose_screen():
 	var node = lose_screen.instantiate()
 	UI_parent.add_child(node)
 
+func summon_win_screen():
+	var node = win_screen.instantiate()
+	UI_parent.add_child(node)
+
 func upgrade_shield(amount : int) -> bool:
 	var _final_cost = bubble_upgrade_cost * pow(State.bubble_cost_increment, amount)
 	if _final_cost > State.resource:
@@ -59,6 +65,10 @@ func upgrade_shield(amount : int) -> bool:
 	recalc_bubble_scale()
 	recalc_camera_zoom()
 	bubble_upgraded.emit(bubble_upgrade_cost)
+	if State.bubble_level > State.max_bubble_upgrades:
+		win.emit()
+		State.has_won = true
+		summon_win_screen()
 	return true
 
 

@@ -18,3 +18,5 @@ static var init_max_resource : float = 200
 static var resource : float = 70
 static var bubble_level : float = 1
 static var max_resource : float = 200
+
+static var has_won : bool
