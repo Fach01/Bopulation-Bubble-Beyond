@@ -42,6 +42,7 @@ func upgrade_shield(amount : int) -> bool:
 		return false
 	State.bubble_level += amount
 	State.resource -= _final_cost
+	recalc_bubble_scale()
 	recalc_camera_zoom()
 	return true
 
