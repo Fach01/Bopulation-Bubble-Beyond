@@ -1,7 +1,7 @@
 class_name State
 
-const bubble_cost_increment : float = 1.8
-const unit_cost_increment : float = 1.3
+const bubble_cost_increment : float = 2
+const unit_cost_increment : float = 1.1
 const storage_cost_increment : float = 1.5
 
 const spawn_min_radius : float = 200

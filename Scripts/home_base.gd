@@ -25,6 +25,7 @@ var dead : bool
 
 signal changed_storage(max_storage : float)
 signal changed_resource(resources : float)
+signal changed_resource_text(new_text : String)
 signal pop
 signal bubble_upgraded(new_price : float)
 signal unit_upgraded(new_price : float)
@@ -38,6 +39,7 @@ func _process(delta: float) -> void:
 	State.resource = min(State.resource, State.max_resource)
 	State.resource -= depletion_speed * (State.bubble_level) * delta
 	changed_resource.emit(State.resource)
+	update_text()
 	if State.resource <= 0:
 		pop.emit()
 		summon_lose_screen()
@@ -48,6 +50,10 @@ func _process(delta: float) -> void:
 
 	for i in unit_instancer.multimesh.instance_count:
 		unit_instancer.multimesh.set_instance_transform_2d(i, units[i].transform)
+
+func update_text():
+	var new_text : String = str(int(State.resource)) + "/" + str(int(State.max_resource))
+	changed_resource_text.emit(new_text)
 
 func summon_lose_screen():
 	var node = lose_screen.instantiate()

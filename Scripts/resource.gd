@@ -4,7 +4,10 @@ extends Sprite2D
 @export var min_count : int = 20
 @export var max_count : int = 40
 @export var min_value : int = 10
-@export var max_value : int = 30
+@export var max_value : int = 50
+
+@export var min_scale : float = 2
+@export var max_scale : float = 4
 
 @export var resource_count : int
 @export var resource_value : float
@@ -12,9 +15,11 @@ extends Sprite2D
 signal depleted
 
 func _ready():
-    resource_count = randi_range(min_count,max_count) 
-    resource_value = randi_range(min_value,max_value)
+    var rando = pow(randf(),2)
+    resource_count = lerp(max_count,min_count,rando)
+    resource_value = lerp(min_value, max_value, rando)
     rotate(randf() * TAU)
+    scale = Vector2.ONE * lerp(min_scale, max_scale, rando)
 
 func Peak_Resources() -> int :
     return resource_count

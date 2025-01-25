@@ -58,7 +58,7 @@ func grab_resource():
 
 	# print("grabbing resource")
 
-	if current_target == null:
+	while current_target == null:
 		await get_tree().process_frame
 		await select_new_node()
 		fetch_resource()

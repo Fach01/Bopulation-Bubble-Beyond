@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://koriirba2qc7"]
+[gd_scene load_steps=23 format=3 uid="uid://koriirba2qc7"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
@@ -44,6 +44,8 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbyhi"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -129,6 +131,18 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_k4itn")
 value = 100.0
 show_percentage = false
 
+[node name="Label" type="Label" parent="HUD/AspectRatioContainer/Control/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/100"
+label_settings = SubResource("LabelSettings_wbyhi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Control2" type="Control" parent="HUD/AspectRatioContainer"]
 layout_mode = 2
 mouse_filter = 1
@@ -192,6 +206,7 @@ texture_normal = ExtResource("8_w2021")
 stretch_mode = 4
 
 [connection signal="changed_resource" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_value"]
+[connection signal="changed_resource_text" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar/Label" method="set_text"]
 [connection signal="changed_storage" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_max"]
 [connection signal="pressed" from="HUD/AspectRatioContainer/Control2/Panel/GridContainer/Upgrade Shield" to="Home Base" method="upgrade_shield"]
 [connection signal="pressed" from="HUD/AspectRatioContainer/Control2/Panel/GridContainer/Buy Unit" to="Home Base" method="buy_units" binds= [1]]
