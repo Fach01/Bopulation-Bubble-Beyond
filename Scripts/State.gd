@@ -11,3 +11,4 @@ const max_bubble_upgrades : int = 20
 
 static var resource : float = 999999
 static var bubble_level : float = 1
+static var max_resource : float = 200
