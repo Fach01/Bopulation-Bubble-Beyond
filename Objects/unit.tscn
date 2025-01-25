@@ -5,11 +5,4 @@
 [node name="Unit" type="Node2D"]
 scale = Vector2(0.65625, 0.65625)
 script = ExtResource("1_xuv4b")
-speed = 200.0
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-21.3333, -35.0476)
-rotation = 1.57079
-scale = Vector2(9.5, 9.976)
-color = Color(1, 0.86, 0.16, 1)
-polygon = PackedVector2Array(0, 0, -3.04762, 1.52381, 0, -6.09524, 3.04762, 1.52381)
+speed = 2000.0

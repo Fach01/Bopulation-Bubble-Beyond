@@ -20,28 +20,29 @@ func select_new_node():
 	# print("selecting new node")
 	current_target = null
 	var dist : float = TYPE_MAX
+	while current_target == null:
+		for a in resource_manager.get_children():
+			if a.is_queued_for_deletion() || pow(State.bubble_init_scale * pow(State.spawn_radius_multiplier, State.bubble_level),2) * 1024 < Vector2.ZERO.distance_squared_to(a.global_position): continue
 
-	for a in resource_manager.get_children():
-		if a.is_queued_for_deletion() || pow(State.bubble_init_scale * pow(State.spawn_radius_multiplier, State.bubble_level),2) * 1024 < Vector2.ZERO.distance_squared_to(a.global_position): continue
-
-		if current_target == null:
-			current_target = a
-			dist = global_position.distance_squared_to(a.global_position) + randf_range(-30,30)
-		else:
-			var new_dist = global_position.distance_squared_to(a.global_position)
-			if dist > new_dist:
+			if current_target == null:
 				current_target = a
-				dist = new_dist
+				dist = global_position.distance_squared_to(a.global_position) + randf_range(-30,30)
+			else:
+				var new_dist = global_position.distance_squared_to(a.global_position)
+				if dist > new_dist:
+					current_target = a
+					dist = new_dist
+		
+		if current_target == null:
+			print("oof")
+			await home_base.bubble_upgraded
 	
-	if current_target == null:
-		await get_tree().create_timer(randf() * 0.5).timeout
-		select_new_node()
-		return
+	await get_tree().create_timer(randf() * 0.5).timeout
 	
 
 func fetch_resource():
 	while current_target == null:
-		select_new_node()
+		await select_new_node()
 	look_at(current_target.global_position)
 
 	tween = create_tween()
@@ -59,7 +60,7 @@ func grab_resource():
 
 	if current_target == null:
 		await get_tree().process_frame
-		select_new_node()
+		await select_new_node()
 		fetch_resource()
 
 	carrying = (current_target as ResourceNode).Take_Resource()

@@ -12,12 +12,17 @@ extends Sprite2D
 @export var UI_parent : Control
 @export var lose_screen : PackedScene
 
+var units : Array[Unit]
+
+@export var unit_instancer : MultiMeshInstance2D
+
 var dead : bool
 
 
 signal changed_storage(max_storage : float)
 signal changed_resource(resources : float)
 signal pop
+signal bubble_upgraded
 
 
 @export var unit_scene : PackedScene
@@ -30,7 +35,12 @@ func _process(delta: float) -> void:
 	if State.resource <= 0:
 		pop.emit()
 		summon_lose_screen()
+		unit_instancer.multimesh.instance_count = 0
+		units.clear()
 		dead = true
+
+	for i in unit_instancer.multimesh.instance_count:
+		unit_instancer.multimesh.set_instance_transform_2d(i, units[i].transform)
 
 func summon_lose_screen():
 	var node = lose_screen.instantiate()
@@ -44,6 +54,7 @@ func upgrade_shield(amount : int) -> bool:
 	State.resource -= _final_cost
 	recalc_bubble_scale()
 	recalc_camera_zoom()
+	bubble_upgraded.emit()
 	return true
 
 
@@ -62,12 +73,18 @@ func _ready() -> void:
 	recalc_bubble_scale()
 	recalc_camera_zoom()
 
+
+
+	spawn_units(1)
+
 func spawn_units(amount : int):
 	for i in amount:
 		var new_unit : Unit = unit_scene.instantiate()
 		new_unit.home_base = self
 		new_unit.resource_manager = get_parent().find_child("Resource Manager")
 		get_parent().add_child.call_deferred(new_unit)
+		units.append(new_unit)
+		unit_instancer.multimesh.instance_count += 1
 
 func buy_units(amount : int, buy_max : bool = true):
 	if buy_max:

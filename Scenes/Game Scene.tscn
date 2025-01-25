@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://koriirba2qc7"]
+[gd_scene load_steps=20 format=3 uid="uid://koriirba2qc7"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
 [ext_resource type="ButtonGroup" uid="uid://f4soss1gceil" path="res://Objects/Store Button Group.tres" id="6_5twy6"]
 [ext_resource type="Texture2D" uid="uid://dgiyepu4djsgl" path="res://Assets/Textures/GetWorkers.png" id="7_8vim0"]
+[ext_resource type="Texture2D" uid="uid://btm0rd0oefbcr" path="res://Assets/Textures/worker sprite.png" id="7_lp43u"]
 [ext_resource type="Texture2D" uid="uid://0nrsfc17c5i2" path="res://Assets/Textures/Storage upgrade.png" id="8_w2021"]
 [ext_resource type="PackedScene" uid="uid://db77epk0eacdi" path="res://Objects/lose_screen.tscn" id="10_va2wc"]
 
@@ -31,6 +32,12 @@ gradient = SubResource("Gradient_fpl07")
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_eurxp"]
+size = Vector2(32, 32)
+
+[sub_resource type="MultiMesh" id="MultiMesh_w7il5"]
+mesh = SubResource("QuadMesh_eurxp")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d74re"]
 bg_color = Color(0, 0.261304, 0.555395, 1)
@@ -64,7 +71,7 @@ resource_node_tree = ExtResource("2_f0crh")
 scale = Vector2(10, 10)
 texture = SubResource("GradientTexture2D_2xryy")
 
-[node name="Home Base" type="Sprite2D" parent="." node_paths=PackedStringArray("shield", "camera", "UI_parent")]
+[node name="Home Base" type="Sprite2D" parent="." node_paths=PackedStringArray("shield", "camera", "UI_parent", "unit_instancer")]
 texture = SubResource("GradientTexture2D_73ndl")
 script = ExtResource("3_t5err")
 unit_cost = 40.0
@@ -74,12 +81,12 @@ shield = NodePath("../Bubble")
 camera = NodePath("../Camera2D")
 UI_parent = NodePath("../HUD/AspectRatioContainer/Control2")
 lose_screen = ExtResource("10_va2wc")
+unit_instancer = NodePath("MultiMeshInstance2D")
 unit_scene = ExtResource("5_j3rfs")
 
-[node name="Unit8" parent="." node_paths=PackedStringArray("resource_manager", "home_base") instance=ExtResource("5_j3rfs")]
-position = Vector2(-71, -88)
-resource_manager = NodePath("../Resource Manager")
-home_base = NodePath("../Home Base")
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="Home Base"]
+multimesh = SubResource("MultiMesh_w7il5")
+texture = ExtResource("7_lp43u")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
