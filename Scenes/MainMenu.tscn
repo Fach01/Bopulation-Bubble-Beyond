@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvfgyur7buu6i"]
+[gd_scene load_steps=9 format=3 uid="uid://dvfgyur7buu6i"]
 
 [ext_resource type="Script" path="res://Scripts/start_button.gd" id="1_fuhc0"]
 [ext_resource type="PackedScene" uid="uid://df8u303eews57" path="res://Scenes/GameScene.tscn" id="2_w0gi0"]
+[ext_resource type="Script" path="res://Scripts/settings_button.gd" id="3_5viag"]
 [ext_resource type="Script" path="res://Scripts/quit_button.gd" id="3_vhwbu"]
+[ext_resource type="PackedScene" uid="uid://drmhge3wcqw3q" path="res://Scenes/SettingsScene.tscn" id="4_ifloi"]
+[ext_resource type="Script" path="res://Scripts/credits_button.gd" id="4_tq7bo"]
+[ext_resource type="PackedScene" uid="uid://ddlmb2e8skpw1" path="res://Scenes/CreditScene.tscn" id="6_b2g2p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0mvl"]
 font_size = 76
@@ -49,13 +53,17 @@ text = "Start"
 script = ExtResource("1_fuhc0")
 NewScene = ExtResource("2_w0gi0")
 
-[node name="Button2" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
+[node name="Settings Button" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
 layout_mode = 2
 text = "Settings"
+script = ExtResource("3_5viag")
+NewScene = ExtResource("4_ifloi")
 
-[node name="Button3" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
+[node name="Credits Button" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
 layout_mode = 2
 text = "Credits"
+script = ExtResource("4_tq7bo")
+NewScene = ExtResource("6_b2g2p")
 
 [node name="QuitButton" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
 layout_mode = 2
