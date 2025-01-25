@@ -42,6 +42,18 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="RichTextLabel" type="RichTextLabel" parent="AspectRatioContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "I'll let someone else write out these credits as i dunno what im doing lol"
+fit_content = true
+
+[node name="Spacing" type="ColorRect" parent="AspectRatioContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 117.11)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
 [node name="CloseSettings" type="Button" parent="AspectRatioContainer/Control/VBoxContainer"]
 layout_mode = 2
 text = "Return To Menu"
