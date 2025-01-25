@@ -58,7 +58,7 @@ func summon_win_screen():
 	var node = win_screen.instantiate()
 	UI_parent.add_child(node)
 
-func upgrade_shield(amount : int) -> bool:
+func upgrade_shield(amount : int = 1) -> bool:
 	var _final_cost = bubble_upgrade_cost * pow(State.bubble_cost_increment, amount)
 	if _final_cost > State.resource:
 		return false
@@ -103,7 +103,7 @@ func spawn_units(amount : int):
 		units.append(new_unit)
 		unit_instancer.multimesh.instance_count += 1
 
-func buy_units(amount : int, buy_max : bool = true):
+func buy_units(amount : int = 1, buy_max : bool = true):
 	if buy_max:
 		for i in amount:
 			if unit_cost > State.resource:
