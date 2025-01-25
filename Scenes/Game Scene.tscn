@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://df8u303eews57"]
+[gd_scene load_steps=11 format=3 uid="uid://koriirba2qc7"]
 
-[ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
+[ext_resource type="Script" path="res://Scenes/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
 [ext_resource type="Script" path="res://Scripts/home_base.gd" id="3_t5err"]
 [ext_resource type="Texture2D" uid="uid://sbqle6wjpmp0" path="res://Assets/Textures/Bubble Upgrade.png" id="4_b6coj"]
