@@ -1,13 +1,15 @@
 class_name State
 
-const upgrade_cost_increment : float = 1.2
+const bubble_cost_increment : float = 1.8
+const unit_cost_increment : float = 1.3
+const storage_cost_increment : float = 1.5
 
 const spawn_min_radius : float = 200
 const spawn_radius_multiplier : float = 1.23
 
 const starter_nodes : int = 300
 const bubble_init_scale : float = 10
-const max_bubble_upgrades : int = 20
+const max_bubble_upgrades : int = 15
 
 static var init_resource : float = 70
 static var init_bubble_level : float = 1

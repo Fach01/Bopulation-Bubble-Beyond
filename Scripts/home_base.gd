@@ -12,6 +12,8 @@ extends Sprite2D
 @export var UI_parent : Control
 @export var lose_screen : PackedScene
 
+@export var dead_unit_texture : Texture2D
+
 var units : Array[Unit]
 
 @export var unit_instancer : MultiMeshInstance2D
@@ -22,7 +24,8 @@ var dead : bool
 signal changed_storage(max_storage : float)
 signal changed_resource(resources : float)
 signal pop
-signal bubble_upgraded
+signal bubble_upgraded(new_price : float)
+signal unit_upgraded(new_price : float)
 
 
 @export var unit_scene : PackedScene
@@ -30,14 +33,15 @@ signal bubble_upgraded
 func _process(delta: float) -> void:
 	if dead : return
 	State.resource = min(State.resource, State.max_resource)
-	State.resource -= depletion_speed * (State.bubble_level * .8) * delta
+	State.resource -= depletion_speed * (State.bubble_level) * delta
 	changed_resource.emit(State.resource)
 	if State.resource <= 0:
 		pop.emit()
 		summon_lose_screen()
-		unit_instancer.multimesh.instance_count = 0
+		unit_instancer.texture = dead_unit_texture
 		units.clear()
 		dead = true
+		return
 
 	for i in unit_instancer.multimesh.instance_count:
 		unit_instancer.multimesh.set_instance_transform_2d(i, units[i].transform)
@@ -47,19 +51,20 @@ func summon_lose_screen():
 	UI_parent.add_child(node)
 
 func upgrade_shield(amount : int) -> bool:
-	var _final_cost = bubble_upgrade_cost * pow(State.upgrade_cost_increment, amount)
+	var _final_cost = bubble_upgrade_cost * pow(State.bubble_cost_increment, amount)
 	if _final_cost > State.resource:
 		return false
 	State.bubble_level += amount
 	State.resource -= _final_cost
 	recalc_bubble_scale()
 	recalc_camera_zoom()
-	bubble_upgraded.emit()
+	bubble_upgraded.emit(bubble_upgrade_cost)
 	return true
 
 
 func recalc_bubble_scale():
-	shield.scale = Vector2.ONE * State.bubble_init_scale * pow(State.spawn_radius_multiplier, State.bubble_level)
+	var tween = create_tween()
+	tween.tween_property(shield, "scale", Vector2.ONE * State.bubble_init_scale * pow(State.spawn_radius_multiplier, State.bubble_level), 0.5).set_trans(tween.TRANS_ELASTIC)
 
 func recalc_camera_zoom():
 	camera.zoom = Vector2.ONE / pow(State.spawn_radius_multiplier, State.bubble_level)
@@ -73,7 +78,7 @@ func _ready() -> void:
 	recalc_bubble_scale()
 	recalc_camera_zoom()
 
-
+	tree_exited.connect(func() : unit_instancer.multimesh.instance_count = 0)
 
 	spawn_units(1)
 
@@ -93,7 +98,9 @@ func buy_units(amount : int, buy_max : bool = true):
 				return
 			else:
 				State.resource -= unit_cost
+				unit_cost *= State.unit_cost_increment
 				spawn_units(1)
+				unit_upgraded.emit(unit_cost)
 	else:
 		if unit_cost * amount > State.resource:
 			return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://koriirba2qc7"]
+[gd_scene load_steps=21 format=3 uid="uid://koriirba2qc7"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xftryq1tmjcv" path="res://Objects/unit.tscn" id="5_j3rfs"]
 [ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
 [ext_resource type="ButtonGroup" uid="uid://f4soss1gceil" path="res://Objects/Store Button Group.tres" id="6_5twy6"]
+[ext_resource type="Texture2D" uid="uid://blwf4uhk02nr" path="res://Assets/Textures/dead worker sprite.png" id="6_xugy1"]
 [ext_resource type="Texture2D" uid="uid://dgiyepu4djsgl" path="res://Assets/Textures/GetWorkers.png" id="7_8vim0"]
 [ext_resource type="Texture2D" uid="uid://btm0rd0oefbcr" path="res://Assets/Textures/worker sprite.png" id="7_lp43u"]
 [ext_resource type="Texture2D" uid="uid://0nrsfc17c5i2" path="res://Assets/Textures/Storage upgrade.png" id="8_w2021"]
@@ -34,7 +35,8 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_eurxp"]
-size = Vector2(32, 32)
+size = Vector2(58, 58)
+center_offset = Vector3(0, 22.86, 0)
 
 [sub_resource type="MultiMesh" id="MultiMesh_w7il5"]
 mesh = SubResource("QuadMesh_eurxp")
@@ -77,10 +79,12 @@ script = ExtResource("3_t5err")
 unit_cost = 40.0
 bubble_upgrade_cost = 20.0
 storage_upgrade_cost = 20.0
+depletion_speed = null
 shield = NodePath("../Bubble")
 camera = NodePath("../Camera2D")
 UI_parent = NodePath("../HUD/AspectRatioContainer/Control2")
 lose_screen = ExtResource("10_va2wc")
+dead_unit_texture = ExtResource("6_xugy1")
 unit_instancer = NodePath("MultiMeshInstance2D")
 unit_scene = ExtResource("5_j3rfs")
 
@@ -122,6 +126,7 @@ mouse_filter = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_d74re")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k4itn")
 value = 100.0
+show_percentage = false
 
 [node name="Control2" type="Control" parent="HUD/AspectRatioContainer"]
 layout_mode = 2
@@ -159,6 +164,7 @@ columns = 2
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+tooltip_text = "Upgrade Bubble"
 mouse_filter = 1
 button_group = ExtResource("6_5twy6")
 texture_normal = ExtResource("4_b6coj")
@@ -168,6 +174,7 @@ stretch_mode = 4
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+tooltip_text = "Buy Worker"
 mouse_filter = 1
 button_group = ExtResource("6_5twy6")
 texture_normal = ExtResource("7_8vim0")
@@ -177,6 +184,7 @@ stretch_mode = 4
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+tooltip_text = "Upgrade Storage"
 mouse_filter = 1
 button_group = ExtResource("6_5twy6")
 texture_normal = ExtResource("8_w2021")

@@ -5,4 +5,4 @@
 [node name="Unit" type="Node2D"]
 scale = Vector2(0.65625, 0.65625)
 script = ExtResource("1_xuv4b")
-speed = 2000.0
+speed = 300.0
