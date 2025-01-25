@@ -40,7 +40,7 @@ func select_new_node():
 	
 
 func fetch_resource():
-	if current_target == null:
+	while current_target == null:
 		select_new_node()
 	look_at(current_target.global_position)
 
@@ -61,7 +61,7 @@ func grab_resource():
 		await get_tree().process_frame
 		select_new_node()
 		fetch_resource()
-		
+
 	carrying = (current_target as ResourceNode).Take_Resource()
 
 	look_at(home_base.global_position)

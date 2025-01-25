@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://clrbv0a7ggpt1"]
+
+[ext_resource type="Script" path="res://Scripts/button_sound_manager.gd" id="1_2lhnu"]
+[ext_resource type="Script" path="res://Scripts/button_sound_group.gd" id="2_jfxsq"]
+
+[sub_resource type="Resource" id="Resource_ynvc6"]
+script = ExtResource("2_jfxsq")
+
+[sub_resource type="Resource" id="Resource_cq30u"]
+script = ExtResource("2_jfxsq")
+
+[sub_resource type="Resource" id="Resource_ddaa3"]
+script = ExtResource("2_jfxsq")
+
+[node name="ButtonSoundManager" type="Node"]
+script = ExtResource("1_2lhnu")
+button_sound_groups = Array[ExtResource("2_jfxsq")]([SubResource("Resource_ynvc6"), SubResource("Resource_cq30u"), SubResource("Resource_ddaa3")])

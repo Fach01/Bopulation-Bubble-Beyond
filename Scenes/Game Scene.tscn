@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://koriirba2qc7"]
+[gd_scene load_steps=13 format=3 uid="uid://koriirba2qc7"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
@@ -28,6 +28,17 @@ fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d74re"]
+bg_color = Color(0, 0.261304, 0.555395, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4itn"]
+bg_color = Color(0, 0.632221, 0.969952, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -35,6 +46,7 @@ position = Vector2(-3.8147e-06, 0)
 position_smoothing_enabled = true
 
 [node name="Mars" type="Sprite2D" parent="."]
+position = Vector2(-28, -2)
 scale = Vector2(24.6777, 24.6777)
 texture = ExtResource("5_ppkt8")
 
@@ -90,8 +102,9 @@ offset_left = 6.08
 offset_top = 0.205196
 offset_right = -0.119995
 offset_bottom = 0.718185
+theme_override_styles/background = SubResource("StyleBoxFlat_d74re")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k4itn")
 value = 100.0
-show_percentage = false
 
 [node name="Control" type="Control" parent="HUD"]
 layout_mode = 3
