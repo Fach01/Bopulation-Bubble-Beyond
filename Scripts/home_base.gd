@@ -53,6 +53,10 @@ func recalc_camera_zoom():
 	camera.zoom = Vector2.ONE / pow(State.spawn_radius_multiplier, State.bubble_level)
 
 func _ready() -> void:
+	State.resource = State.init_resource
+	State.max_resource = State.init_max_resource
+	State.bubble_level = State.init_bubble_level
+
 	changed_storage.emit(State.max_resource)
 	recalc_bubble_scale()
 	recalc_camera_zoom()
