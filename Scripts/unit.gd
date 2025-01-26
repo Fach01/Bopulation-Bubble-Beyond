@@ -62,9 +62,12 @@ func grab_resource():
 		await get_tree().process_frame
 		await select_new_node()
 		fetch_resource()
-
+	
+	if (current_target as ResourceNode).Take_Resource() == null:
+		pass
 	carrying = (current_target as ResourceNode).Take_Resource()
-
+	
+	
 	look_at(home_base.global_position)
 
 	await get_tree().create_timer(randf_range(0,0.5)).timeout
