@@ -23,7 +23,7 @@ var units : Array[Unit]
 
 var dead : bool
 
-var time_in_bubble : float
+var time_in_bubble : float = 1
 
 signal changed_storage(max_storage : float)
 signal changed_resource(resources : float)
@@ -73,7 +73,7 @@ func upgrade_shield(amount : int = 1) -> bool:
 		return false
 	State.bubble_level += amount
 	State.resource -= _final_cost
-	time_in_bubble = 0
+	time_in_bubble = 1
 	recalc_bubble_scale()
 	recalc_camera_zoom()
 	bubble_upgraded.emit(bubble_upgrade_cost)
