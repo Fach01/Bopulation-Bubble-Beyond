@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://clb06qln38owr"]
+[gd_scene load_steps=5 format=3 uid="uid://cmyi4q0b5q58i"]
 
 [ext_resource type="Script" path="res://Scripts/start_button.gd" id="1_5wixi"]
 
@@ -75,7 +75,7 @@ offset_bottom = 29.868
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center][font_size=45]Congratulations![font_size=20]
+text = "[center][font = Nasalization Rg][font_size=45]Congratulations![font_size=20]
 You've successfully colonised mars!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel"]

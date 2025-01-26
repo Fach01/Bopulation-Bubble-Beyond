@@ -1,12 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://88rdhe1tuonb"]
+[gd_scene load_steps=8 format=3 uid="uid://dttb1ur2naplb"]
 
 [ext_resource type="Script" path="res://Scripts/start_button.gd" id="1_ronnr"]
 [ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="1_t6yoc"]
 [ext_resource type="Script" path="res://Scripts/background_changer.gd" id="2_le3wj"]
 [ext_resource type="Texture2D" uid="uid://byhgdk76j2oq3" path="res://Assets/Textures/Mars_Green.jpg" id="3_hh5dp"]
 [ext_resource type="Script" path="res://Scripts/quit_button.gd" id="5_p2thg"]
+[ext_resource type="FontFile" uid="uid://bqdk7b7bdgobs" path="res://Assets/Nasalization Rg.otf" id="6_1kgv7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_idr70"]
+font = ExtResource("6_1kgv7")
 font_size = 66
 font_color = Color(0, 0.65, 1, 1)
 outline_size = 6
@@ -104,7 +106,8 @@ offset_right = -196.0
 offset_bottom = -377.492
 grow_horizontal = 2
 grow_vertical = 2
-text = "Colonial Bubble Blower"
+text = "Bopulation Bubble Beyond
+"
 label_settings = SubResource("LabelSettings_idr70")
 horizontal_alignment = 1
 vertical_alignment = 1
