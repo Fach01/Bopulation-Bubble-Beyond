@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/button_sound_manager.gd" id="1_2lhnu"]
 [ext_resource type="Script" path="res://Scripts/button_sound_group.gd" id="2_jfxsq"]
 [ext_resource type="AudioStream" uid="uid://cljth6qmfqc5s" path="res://Assets/Audio/SFX/ButtonSelectSFX.wav" id="3_5f00r"]
-[ext_resource type="ButtonGroup" path="res://Objects/Store Button Group.tres" id="3_h6fvh"]
+[ext_resource type="ButtonGroup" uid="uid://f4soss1gceil" path="res://Objects/Store Button Group.tres" id="3_h6fvh"]
 [ext_resource type="AudioStream" uid="uid://pq7h52h2l8p1" path="res://Assets/Audio/SFX/ButtonHoverSFX.wav" id="4_evde7"]
 [ext_resource type="AudioStream" uid="uid://45yhkhvi0e1i" path="res://Assets/Audio/SFX/BuySFX.wav" id="5_nya3u"]
 

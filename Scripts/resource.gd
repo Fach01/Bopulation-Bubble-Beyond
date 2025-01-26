@@ -20,6 +20,8 @@ func _ready():
     resource_value = lerp(min_value, max_value, rando)
     rotate(randf() * TAU)
     scale = Vector2.ONE * lerp(min_scale, max_scale, rando)
+    resource_count *= lerp(1,5, inverse_lerp(State.spawn_min_radius, State.spawn_min_radius * pow(State.spawn_radius_multiplier, State.max_bubble_upgrades + 2), position.distance_to(Vector2.ZERO)))
+    resource_value *= lerp(1,5, inverse_lerp(State.spawn_min_radius, State.spawn_min_radius * pow(State.spawn_radius_multiplier, State.max_bubble_upgrades + 2), position.distance_to(Vector2.ZERO)))
 
 func Peak_Resources() -> int :
     return resource_count
