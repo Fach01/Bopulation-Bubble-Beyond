@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://crs3vvx21fu"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://crs3vvx21fu"]
+
+[ext_resource type="FontFile" uid="uid://b57x8qv3748bv" path="res://Assets/Fonts/Coopers Town.ttf" id="1_lvc5a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bb4p"]
 content_margin_left = 5.0
@@ -85,6 +87,7 @@ shadow_offset = Vector2(5, 5)
 anti_aliasing = false
 
 [resource]
+default_font = ExtResource("1_lvc5a")
 Button/font_sizes/font_size = 21
 Button/styles/focus = SubResource("StyleBoxFlat_8bb4p")
 Button/styles/hover = SubResource("StyleBoxFlat_d0o6f")
@@ -98,10 +101,10 @@ Label/constants/shadow_offset_x = 2
 Label/constants/shadow_offset_y = 2
 Label/constants/shadow_outline_size = 2
 Label/font_sizes/font_size = 41
-Label/fonts/font = null
+Label/fonts/font = ExtResource("1_lvc5a")
 Label/styles/normal = null
 Panel/styles/panel = SubResource("StyleBoxFlat_l6osn")
-RichTextLabel/fonts/normal_font = null
+RichTextLabel/fonts/normal_font = ExtResource("1_lvc5a")
 TooltipLabel/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 TooltipLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 TooltipLabel/colors/font_shadow_color = Color(0, 0, 0, 0)

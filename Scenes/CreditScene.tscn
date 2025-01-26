@@ -40,12 +40,11 @@ bbcode_enabled = true
 text = "[center] [font_size=30] Programmers [/font_size]
 Kieran Pavy
 Aidan something
-Peyten something else
 
  [font_size=30] Artists [/font_size]
 Kieran Pavy
-Peyton Something
-Meagan another thing"
+Peyten Redburn
+Meagan Shaw"
 fit_content = true
 
 [node name="CloseSettings" type="Button" parent="AspectRatioContainer/Control"]
