@@ -65,7 +65,7 @@ func summon_win_screen():
 	UI_parent.add_child(node)
 
 func upgrade_shield(amount : int = 1) -> bool:
-	var _final_cost = bubble_upgrade_cost * pow(State.bubble_cost_increment, amount)
+	var _final_cost = lerp(bubble_upgrade_cost, State.max_bubble_cost, pow(inverse_lerp(1,State.max_bubble_upgrades, State.bubble_level), 2))
 	if _final_cost > State.resource:
 		return false
 	State.bubble_level += amount
