@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://koriirba2qc7"]
+[gd_scene load_steps=24 format=3 uid="uid://koriirba2qc7"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
@@ -8,14 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://kkg85xhbgnjc" path="res://Assets/Textures/Generator.png" id="4_mbi4j"]
 [ext_resource type="PackedScene" uid="uid://xftryq1tmjcv" path="res://Objects/unit.tscn" id="5_j3rfs"]
 [ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
-[ext_resource type="ButtonGroup" path="res://Objects/Store Button Group.tres" id="6_5twy6"]
+[ext_resource type="ButtonGroup" uid="uid://f4soss1gceil" path="res://Objects/Store Button Group.tres" id="6_5twy6"]
 [ext_resource type="PackedScene" uid="uid://cmyi4q0b5q58i" path="res://Objects/win_screen.tscn" id="6_kd8gn"]
 [ext_resource type="Texture2D" uid="uid://blwf4uhk02nr" path="res://Assets/Textures/dead worker sprite.png" id="6_xugy1"]
 [ext_resource type="Texture2D" uid="uid://btm0rd0oefbcr" path="res://Assets/Textures/worker sprite.png" id="7_lp43u"]
 [ext_resource type="Texture2D" uid="uid://byhgdk76j2oq3" path="res://Assets/Textures/Mars_Green.jpg" id="8_1afv7"]
 [ext_resource type="Texture2D" uid="uid://0nrsfc17c5i2" path="res://Assets/Textures/Storage upgrade.png" id="8_w2021"]
-[ext_resource type="PackedScene" path="res://Objects/lose_screen.tscn" id="10_va2wc"]
-[ext_resource type="FontFile" uid="uid://bqdk7b7bdgobs" path="res://Assets/Nasalization Rg.otf" id="12_u224g"]
+[ext_resource type="PackedScene" uid="uid://db77epk0eacdi" path="res://Objects/lose_screen.tscn" id="10_va2wc"]
 [ext_resource type="Texture2D" uid="uid://b1mcpxdnioba8" path="res://Assets/Textures/MOREEEEEEE.png" id="16_d6mfw"]
 
 [sub_resource type="Gradient" id="Gradient_s4prp"]
@@ -48,7 +47,6 @@ border_width_bottom = 4
 border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wbyhi"]
-font = ExtResource("12_u224g")
 
 [node name="Node2D" type="Node2D"]
 
