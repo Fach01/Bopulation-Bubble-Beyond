@@ -70,6 +70,8 @@ text = "Volume"
 
 [node name="Volume" type="HSlider" parent="AspectRatioContainer/Control/VBoxContainer"]
 layout_mode = 2
+min_value = -50.0
+max_value = 10.0
 
 [node name="Mute" type="CheckBox" parent="AspectRatioContainer/Control/VBoxContainer"]
 layout_mode = 2

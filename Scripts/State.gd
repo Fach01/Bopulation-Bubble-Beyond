@@ -10,6 +10,7 @@ const spawn_radius_multiplier : float = 1.23
 const starter_nodes : int = 300
 const bubble_init_scale : float = 10
 const max_bubble_upgrades : int = 15
+const max_bubble_cost : float  = 10000
 
 static var init_resource : float = 70
 static var init_bubble_level : float = 1
