@@ -23,4 +23,4 @@ func do_meteors():
 	while true:
 		await get_tree().create_timer(randf_range(3, 20)).timeout
 		var new_meteor = meteor.instantiate()
-		add_child(new_meteor)
+		get_parent().add_child(new_meteor)

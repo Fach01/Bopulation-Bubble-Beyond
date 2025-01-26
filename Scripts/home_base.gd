@@ -23,6 +23,8 @@ var units : Array[Unit]
 
 var dead : bool
 
+var time_in_bubble : float
+
 signal changed_storage(max_storage : float)
 signal changed_resource(resources : float)
 signal changed_resource_text(new_text : String)
@@ -36,8 +38,9 @@ signal win
 
 func _process(delta: float) -> void:
 	if dead || State.has_won : return
+	time_in_bubble += delta
 	State.resource = min(State.resource, State.max_resource)
-	State.resource -= depletion_speed * (State.bubble_level) * delta
+	State.resource -= depletion_speed * (State.bubble_level) * (time_in_bubble * 0.1) * delta 
 	changed_resource.emit(State.resource)
 	update_text()
 	if State.resource <= 0:
@@ -70,6 +73,7 @@ func upgrade_shield(amount : int = 1) -> bool:
 		return false
 	State.bubble_level += amount
 	State.resource -= _final_cost
+	time_in_bubble = 0
 	recalc_bubble_scale()
 	recalc_camera_zoom()
 	bubble_upgraded.emit(bubble_upgrade_cost)
