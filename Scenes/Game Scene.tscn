@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://koriirba2qc7"]
+[gd_scene load_steps=24 format=3 uid="uid://koriirba2qc7"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://kkg85xhbgnjc" path="res://Assets/Textures/Generator.png" id="4_mbi4j"]
 [ext_resource type="PackedScene" uid="uid://xftryq1tmjcv" path="res://Objects/unit.tscn" id="5_j3rfs"]
 [ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
-[ext_resource type="ButtonGroup" path="res://Objects/Store Button Group.tres" id="6_5twy6"]
 [ext_resource type="PackedScene" uid="uid://cmyi4q0b5q58i" path="res://Objects/win_screen.tscn" id="6_kd8gn"]
 [ext_resource type="Texture2D" uid="uid://blwf4uhk02nr" path="res://Assets/Textures/dead worker sprite.png" id="6_xugy1"]
 [ext_resource type="Texture2D" uid="uid://btm0rd0oefbcr" path="res://Assets/Textures/worker sprite.png" id="7_lp43u"]
@@ -187,7 +186,6 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 tooltip_text = "Upgrade Bubble"
 mouse_filter = 1
-button_group = ExtResource("6_5twy6")
 texture_normal = ExtResource("4_b6coj")
 stretch_mode = 4
 
@@ -197,7 +195,6 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 tooltip_text = "Buy Worker"
 mouse_filter = 1
-button_group = ExtResource("6_5twy6")
 texture_normal = ExtResource("16_d6mfw")
 stretch_mode = 4
 
@@ -207,7 +204,6 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 tooltip_text = "Upgrade Storage"
 mouse_filter = 1
-button_group = ExtResource("6_5twy6")
 texture_normal = ExtResource("8_w2021")
 stretch_mode = 4
 
