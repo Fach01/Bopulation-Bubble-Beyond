@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://koriirba2qc7"]
+[gd_scene load_steps=25 format=3 uid="uid://koriirba2qc7"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
@@ -9,14 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://xftryq1tmjcv" path="res://Objects/unit.tscn" id="5_j3rfs"]
 [ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
 [ext_resource type="ButtonGroup" path="res://Objects/Store Button Group.tres" id="6_5twy6"]
-[ext_resource type="PackedScene" path="res://Objects/win_screen.tscn" id="6_kd8gn"]
+[ext_resource type="PackedScene" uid="uid://cmyi4q0b5q58i" path="res://Objects/win_screen.tscn" id="6_kd8gn"]
 [ext_resource type="Texture2D" uid="uid://blwf4uhk02nr" path="res://Assets/Textures/dead worker sprite.png" id="6_xugy1"]
-[ext_resource type="Texture2D" uid="uid://dgiyepu4djsgl" path="res://Assets/Textures/GetWorkers.png" id="7_8vim0"]
 [ext_resource type="Texture2D" uid="uid://btm0rd0oefbcr" path="res://Assets/Textures/worker sprite.png" id="7_lp43u"]
 [ext_resource type="Texture2D" uid="uid://byhgdk76j2oq3" path="res://Assets/Textures/Mars_Green.jpg" id="8_1afv7"]
 [ext_resource type="Texture2D" uid="uid://0nrsfc17c5i2" path="res://Assets/Textures/Storage upgrade.png" id="8_w2021"]
 [ext_resource type="PackedScene" path="res://Objects/lose_screen.tscn" id="10_va2wc"]
 [ext_resource type="FontFile" uid="uid://bqdk7b7bdgobs" path="res://Assets/Nasalization Rg.otf" id="12_u224g"]
+[ext_resource type="Texture2D" uid="uid://b1mcpxdnioba8" path="res://Assets/Textures/MOREEEEEEE.png" id="16_d6mfw"]
 
 [sub_resource type="Gradient" id="Gradient_s4prp"]
 interpolation_mode = 2
@@ -198,7 +198,7 @@ size_flags_vertical = 6
 tooltip_text = "Buy Worker"
 mouse_filter = 1
 button_group = ExtResource("6_5twy6")
-texture_normal = ExtResource("7_8vim0")
+texture_normal = ExtResource("16_d6mfw")
 stretch_mode = 4
 
 [node name="Upgrade Storage" type="TextureButton" parent="HUD/AspectRatioContainer/Control2/Panel/GridContainer"]
