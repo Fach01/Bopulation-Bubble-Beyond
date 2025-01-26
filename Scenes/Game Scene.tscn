@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://koriirba2qc7"]
+[gd_scene load_steps=25 format=3 uid="uid://koriirba2qc7"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://0nrsfc17c5i2" path="res://Assets/Textures/Storage upgrade.png" id="8_w2021"]
 [ext_resource type="PackedScene" uid="uid://db77epk0eacdi" path="res://Objects/lose_screen.tscn" id="10_va2wc"]
 [ext_resource type="Texture2D" uid="uid://b1mcpxdnioba8" path="res://Assets/Textures/MOREEEEEEE.png" id="16_d6mfw"]
+[ext_resource type="PackedScene" uid="uid://b3j7sm78n7ee2" path="res://Objects/meteor.tscn" id="17_7tum6"]
 
 [sub_resource type="Gradient" id="Gradient_s4prp"]
 interpolation_mode = 2
@@ -208,6 +209,9 @@ mouse_filter = 1
 button_group = ExtResource("6_5twy6")
 texture_normal = ExtResource("8_w2021")
 stretch_mode = 4
+
+[node name="Meteor" parent="." instance=ExtResource("17_7tum6")]
+position = Vector2(200, -12)
 
 [connection signal="changed_resource" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_value"]
 [connection signal="changed_resource_text" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar/Label" method="set_text"]
