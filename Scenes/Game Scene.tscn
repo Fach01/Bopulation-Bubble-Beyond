@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://koriirba2qc7"]
+[gd_scene load_steps=24 format=3 uid="uid://koriirba2qc7"]
 
 [ext_resource type="Script" path="res://Scripts/resource_manager.gd" id="1_uj0k0"]
 [ext_resource type="PackedScene" uid="uid://c1vgspxk4gkk6" path="res://Objects/Resource Node.tscn" id="2_f0crh"]
 [ext_resource type="Script" path="res://Scripts/home_base.gd" id="3_t5err"]
+[ext_resource type="AudioStream" uid="uid://dvefu1oe2ssfg" path="res://Assets/Sounds/game-over_2.mp3" id="4_7trm1"]
 [ext_resource type="Texture2D" uid="uid://sbqle6wjpmp0" path="res://Assets/Textures/Bubble Upgrade.png" id="4_b6coj"]
 [ext_resource type="Texture2D" uid="uid://kkg85xhbgnjc" path="res://Assets/Textures/Generator.png" id="4_mbi4j"]
 [ext_resource type="PackedScene" uid="uid://xftryq1tmjcv" path="res://Objects/unit.tscn" id="5_j3rfs"]
@@ -68,6 +69,9 @@ position = Vector2(128, -101)
 [node name="Bubble" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
 texture = SubResource("GradientTexture2D_2xryy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Bubble"]
+stream = ExtResource("4_7trm1")
 
 [node name="Unit Parent" type="Node" parent="."]
 
@@ -208,6 +212,8 @@ stretch_mode = 4
 [connection signal="changed_resource" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_value"]
 [connection signal="changed_resource_text" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar/Label" method="set_text"]
 [connection signal="changed_storage" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_max"]
+[connection signal="pop" from="Home Base" to="Bubble" method="set_visible" binds= [false]]
+[connection signal="pop" from="Home Base" to="Bubble/AudioStreamPlayer" method="play" binds= [0.0]]
 [connection signal="pressed" from="HUD/AspectRatioContainer/Control2/Panel/GridContainer/Upgrade Shield" to="Home Base" method="upgrade_shield"]
 [connection signal="pressed" from="HUD/AspectRatioContainer/Control2/Panel/GridContainer/Buy Unit" to="Home Base" method="buy_units" binds= [1]]
 [connection signal="pressed" from="HUD/AspectRatioContainer/Control2/Panel/GridContainer/Upgrade Storage" to="Home Base" method="upgrade_storage"]

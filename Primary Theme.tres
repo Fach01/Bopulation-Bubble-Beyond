@@ -102,3 +102,7 @@ Label/fonts/font = null
 Label/styles/normal = null
 Panel/styles/panel = SubResource("StyleBoxFlat_l6osn")
 RichTextLabel/fonts/normal_font = null
+TooltipLabel/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+TooltipLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+TooltipLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+TooltipLabel/font_sizes/font_size = 16
