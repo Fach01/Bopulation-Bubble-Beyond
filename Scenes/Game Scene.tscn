@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://kkg85xhbgnjc" path="res://Assets/Textures/Generator.png" id="4_mbi4j"]
 [ext_resource type="PackedScene" uid="uid://xftryq1tmjcv" path="res://Objects/unit.tscn" id="5_j3rfs"]
 [ext_resource type="Texture2D" uid="uid://diynp1cg5pq64" path="res://Assets/Textures/Mars.jpg" id="5_ppkt8"]
-[ext_resource type="ButtonGroup" uid="uid://f4soss1gceil" path="res://Objects/Store Button Group.tres" id="6_5twy6"]
+[ext_resource type="ButtonGroup" path="res://Objects/Store Button Group.tres" id="6_5twy6"]
 [ext_resource type="PackedScene" uid="uid://cmyi4q0b5q58i" path="res://Objects/win_screen.tscn" id="6_kd8gn"]
 [ext_resource type="Texture2D" uid="uid://blwf4uhk02nr" path="res://Assets/Textures/dead worker sprite.png" id="6_xugy1"]
 [ext_resource type="Texture2D" uid="uid://btm0rd0oefbcr" path="res://Assets/Textures/worker sprite.png" id="7_lp43u"]

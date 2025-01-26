@@ -15,25 +15,25 @@ extends Sprite2D
 signal depleted
 
 func _ready():
-    var rando = pow(randf(),2)
-    resource_count = lerp(max_count,min_count,rando)
-    resource_value = lerp(min_value, max_value, rando)
-    rotate(randf() * TAU)
-    scale = Vector2.ONE * lerp(min_scale, max_scale, rando)
-    resource_count *= lerp(1,5, inverse_lerp(State.spawn_min_radius, State.spawn_min_radius * pow(State.spawn_radius_multiplier, State.max_bubble_upgrades + 2), position.distance_to(Vector2.ZERO)))
-    resource_value *= lerp(1,5, inverse_lerp(State.spawn_min_radius, State.spawn_min_radius * pow(State.spawn_radius_multiplier, State.max_bubble_upgrades + 2), position.distance_to(Vector2.ZERO)))
+	var rando = pow(randf(),2)
+	resource_count = lerp(max_count,min_count,rando)
+	resource_value = lerp(min_value, max_value, rando)
+	rotate(randf() * TAU)
+	scale = Vector2.ONE * lerp(min_scale, max_scale, rando)
+	resource_count *= lerp(1,5, inverse_lerp(State.spawn_min_radius, State.spawn_min_radius * pow(State.spawn_radius_multiplier, State.max_bubble_upgrades + 2), position.distance_to(Vector2.ZERO)))
+	resource_value *= lerp(1,5, inverse_lerp(State.spawn_min_radius, State.spawn_min_radius * pow(State.spawn_radius_multiplier, State.max_bubble_upgrades + 2), position.distance_to(Vector2.ZERO)))
 
 func Peak_Resources() -> int :
-    return resource_count
+	return resource_count
 
 func Peak_Value() -> float :
-    return resource_value
+	return resource_value
 
 func Take_Resource() -> float:
-    if is_queued_for_deletion():
-        return 0
-    resource_count -= 1
-    if resource_count <= 0:
-        queue_free()
-        depleted.emit()
-    return resource_value
+	if is_queued_for_deletion():
+		return 0
+	resource_count -= 1
+	if resource_count <= 0:
+		queue_free()
+		depleted.emit()
+	return resource_value
