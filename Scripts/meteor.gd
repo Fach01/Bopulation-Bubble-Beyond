@@ -11,6 +11,7 @@ var value
 var tween
 
 func _ready() -> void:
+	position = Vector2.from_angle(randf_range(0,TAU)) * randf_range(State.spawn_min_radius, State.spawn_min_radius * pow(State.spawn_radius_multiplier, State.bubble_level))
 	var level = inverse_lerp(1,State.max_bubble_upgrades, State.bubble_level)
 	scale = Vector2.ONE * lerp(3.0, max_level_multiplier, level)
 	value = randf_range(min_value, max_value) * level * max_level_multiplier

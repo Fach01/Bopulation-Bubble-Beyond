@@ -63,6 +63,7 @@ texture = ExtResource("5_ppkt8")
 [node name="Resource Manager" type="Node" parent="."]
 script = ExtResource("1_uj0k0")
 resource_node_tree = ExtResource("2_f0crh")
+meteor = ExtResource("17_7tum6")
 
 [node name="Resource" parent="Resource Manager" instance=ExtResource("2_f0crh")]
 position = Vector2(128, -101)
@@ -211,7 +212,7 @@ texture_normal = ExtResource("8_w2021")
 stretch_mode = 4
 
 [node name="Meteor" parent="." instance=ExtResource("17_7tum6")]
-position = Vector2(200, -12)
+position = Vector2(168, 58)
 
 [connection signal="changed_resource" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar" method="set_value"]
 [connection signal="changed_resource_text" from="Home Base" to="HUD/AspectRatioContainer/Control/ProgressBar/Label" method="set_text"]

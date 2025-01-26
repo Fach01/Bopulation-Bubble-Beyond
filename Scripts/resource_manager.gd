@@ -2,6 +2,7 @@ extends Node
 @export var resource_node_tree : PackedScene
 
 @export var active_nodes : Array[ResourceNode]
+@export var meteor : PackedScene
 
 func spawn_node():
 		var new_node : ResourceNode = resource_node_tree.instantiate()
@@ -15,3 +16,11 @@ func spawn_node():
 func _ready() -> void:
 	for i in State.starter_nodes:
 		spawn_node()
+	
+	do_meteors()
+
+func do_meteors():
+	while true:
+		await get_tree().create_timer(randf_range(3, 20)).timeout
+		var new_meteor = meteor.instantiate()
+		add_child(new_meteor)
